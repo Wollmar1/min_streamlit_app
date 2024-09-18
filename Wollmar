@@ -1,0 +1,25 @@
+import ipaddress
+
+
+def check_ip_type(ip_address):
+    try:
+        # endrar om ip adressen till en ipaddress objekt
+        ip = ipaddress.ip_address(ip_address)
+
+        # Kontrolerar ifall ip adressen är lokal
+        # och else gör så de skrivs ut att den är öppen
+        if ip.is_private:
+            print("IP-adressen är en lokal IP-adress.")
+        else:
+            print("IP-adressen är en öppen IP-adress.")
+    except ValueError:
+        print("Ogiltig IP-adress.")
+
+
+def main():
+    ip_address = input("Ange en IP-adress: ")
+    check_ip_type(ip_address)
+
+
+if __name__ == "__main__":
+    main()
